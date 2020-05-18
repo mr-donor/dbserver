@@ -1,0 +1,19 @@
+{
+  "app": {
+    "server": {
+      "port": 8080
+    }
+  },
+  "db": {
+  	"connection": {
+  		"limit": 10,
+  		"wait": true,
+  		"timeout": 1000
+  	},
+  	"host": "localhost",
+  	"port": 3306,
+  	"user": "root",
+  	"password": "811012",
+  	"database": "dbserver"
+  }
+}

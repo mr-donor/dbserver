@@ -4,13 +4,14 @@ const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const Routes = require('./routes');
+const config = require('config');
 
 class App {
 	constructor() {
 		this.express = express();
 		this.config  = {
 			get port() {
-                return process.env.PORT || 8080;
+                return config.get('app.server.port') || 8080;
             }
 		};
 		this.route = this.middleware();
@@ -33,7 +34,7 @@ class App {
     run() {
 		this.express.listen(this.config.port, () => {
             console.log("Express server running project on port " + this.config.port + ".");
-            console.log(`Environment: ${process.env.STAGE || "development"}`);
+            console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
         })
     }
 
